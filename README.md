@@ -11,11 +11,11 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-x64-286789?style=flat-square" alt="Windows x64">
-  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.5-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.5">
+  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.6-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.6">
 </p>
 
 <p align="center">
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.5"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.6"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@
 
 **Windows x64**, 로그인된 PC 카카오톡, Windows 한글 OCR이 필요합니다.
 
-1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.5)을 내려받아 압축을 풉니다.
+1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.6)을 내려받아 압축을 풉니다.
 2. 압축을 푼 폴더에서 PowerShell을 열고 아래 명령을 실행합니다.
 
 ```powershell
@@ -86,6 +86,18 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 | Windows ZIP | 압축을 풀고 `kakao.cmd`를 실행합니다. |
 | AI 스킬 | `skills/kakao-bridge`를 Codex 또는 Claude Code의 스킬 폴더에 복사합니다. |
 
+## 나와의 채팅으로 보내기
+
+본인 대화방이 확인되고 제목만으로 식별하는 한계를 허용한 경우, 한 번 등록하면 AI 스킬이 나에게 보내라는 명시적인 요청을 재확인 없이 처리할 수 있습니다. 등록한 제목은 현재 Windows 사용자로 보호되며 배포 파일에는 포함되지 않습니다. 제목 일치만으로 실제 계정이나 대화방 ID가 증명되지는 않으므로 동명이거나 계정을 변경한 경우에는 다시 식별해야 합니다.
+
+```powershell
+@{chat='확인한 나와의 채팅 창 제목';acknowledge_title_only=$true} |
+  ConvertTo-Json -Compress | .\kakao.cmd bind-self
+.\kakao.cmd self-title
+```
+
+이미 등록된 설정은 자동으로 덮어쓰지 않습니다. 새 계정 사용 시 기존 설정을 보존하고 별도의 압축 해제 폴더에서 다시 등록하세요.
+
 ## 전송하기
 
 `open`으로 대상 대화창을 열 수 있습니다. 현재 대화방 열기는 96 DPI에서만 시도합니다. 창을 열거나 전송하는 중 포커스가 바뀔 수 있으며, 파일 전송은 마우스 포인터도 잠시 움직일 수 있습니다. 열린 창 제목이 정확히 일치해도 실제 방 ID나 수신자를 증명하지는 않습니다. 이 두 조건을 허용할 때 아래 옵션을 지정합니다.
@@ -119,7 +131,7 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 <details>
 <summary><strong>시험 범위</strong></summary>
 
-현재 화면의 친구 목록 OCR과 나와의 채팅 메시지·파일 전송을 확인했습니다. 대화 목록 OCR과 탭 전환은 모의 환경에서만 검증해 실제 카카오톡에서는 아직 확인하지 못했습니다. 파일은 별도 개인용 도구로 다시 내려받아 원본과 해시가 일치하는 것을 확인했습니다. 공개판 자체는 파일 다운로드를 지원하지 않습니다. 전송 결과가 불확실하게 표시된 사례도 있어, 그 경우 실제 대화 기록을 확인한 뒤 진행해야 합니다.
+현재 화면의 친구 목록 OCR과 나와의 채팅 메시지·파일 전송을 확인했습니다. 대화 목록 OCR과 탭 전환은 모의 환경에서만 검증해 실제 카카오톡에서는 아직 확인하지 못했습니다. 200% 화면 배율에서 양쪽 버전의 파일을 나와의 채팅으로 전송하고 다시 내려받아 원본과 일치하는 것을 확인했습니다. 파일은 별도 개인용 도구로 다시 내려받아 원본과 해시가 일치하는 것을 확인했습니다. 공개판 자체는 파일 다운로드를 지원하지 않습니다. 전송 결과가 불확실하게 표시된 사례도 있어, 그 경우 실제 대화 기록을 확인한 뒤 진행해야 합니다.
 
 </details>
 
@@ -134,7 +146,7 @@ Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line
 
 <p align="center">
   <strong>Contentrium</strong><br>
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.5">Kakao Bridge 다운로드</a> ·
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.6">Kakao Bridge 다운로드</a> ·
   <a href="THIRD-PARTY.md">제3자 라이선스</a>
 </p>
 
