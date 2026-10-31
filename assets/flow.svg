@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-label="명령줄에서 카카오톡을 거쳐 JSON 결과를 받는 흐름">
+<rect width="1200" height="380" rx="28" fill="#eef5f1"/>
+<g font-family="Segoe UI,Arial,sans-serif"><rect x="55" y="72" width="310" height="232" rx="20" fill="#142735"/><text x="85" y="130" font-size="25" fill="#83d7bf" font-weight="700">COMMAND</text><text x="85" y="185" font-size="29" fill="#fff" font-family="Consolas,monospace">&gt; kakao chats</text><text x="85" y="250" font-size="20" fill="#a8c5c0">요청을 입력합니다</text>
+<rect x="445" y="72" width="310" height="232" rx="20" fill="#fff"/><text x="475" y="130" font-size="25" fill="#347c6f" font-weight="700">KAKAOTALK PC</text><path d="M500 162h126a20 20 0 0 1 20 20v37a20 20 0 0 1-20 20h-68l-28 20 4-20h-34a20 20 0 0 1-20-20v-37a20 20 0 0 1 20-20z" fill="#f3d567"/><text x="475" y="280" font-size="20" fill="#667e78">실행 중인 앱에 연결</text>
+<rect x="835" y="72" width="310" height="232" rx="20" fill="#143c3e"/><text x="865" y="130" font-size="25" fill="#a2e1d4" font-weight="700">JSON RESULT</text><text x="865" y="185" font-size="25" fill="#fff" font-family="Consolas,monospace">{ "scope": ... }</text><text x="865" y="250" font-size="20" fill="#b8d8d0">결과를 확인합니다</text>
+<path d="M385 188h37m-9-9 9 9-9 9M775 188h37m-9-9 9 9-9 9" stroke="#55a393" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>
