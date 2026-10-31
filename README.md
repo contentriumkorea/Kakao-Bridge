@@ -1,54 +1,88 @@
 <p align="center">
-  <img src="assets/cover.svg" alt="Kakao Bridge — 카카오톡과 명령줄을 잇는 연결" width="100%">
+  <img src="assets/cover-showcase.svg" alt="Kakao Bridge — PC 카카오톡과 AI 작업 흐름을 연결합니다" width="100%">
 </p>
 
 <h1 align="center">Kakao Bridge</h1>
 
 <p align="center">
-  <strong>PC 카카오톡을 명령줄과 AI 작업 흐름에 연결합니다.</strong><br>
-  화면과 Windows 기능을 활용하는 공개 시험판입니다.
+  <strong>PC 카카오톡을 AI와 명령줄에 연결하세요.</strong><br>
+  이미 로그인된 카카오톡으로 확인하고, 읽고, 전송하는 Windows용 공개 시험판입니다.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Windows-x64-1479e8" alt="Windows x64">
-  <img src="https://img.shields.io/badge/상태-시험판-f0b72f" alt="시험판">
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2"><img src="https://img.shields.io/badge/공개_시험판-다운로드-222222" alt="공개 시험판 다운로드"></a>
+  <img src="https://img.shields.io/badge/Windows-x64-286789?style=flat-square" alt="Windows x64">
+  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.2-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.2">
+  <img src="https://img.shields.io/badge/상태-공개_시험판-358472?style=flat-square" alt="공개 시험판">
+</p>
+
+<p align="center">
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2"><img src="assets/download-preview.svg" alt="공개 시험판 다운로드" width="330"></a>
 </p>
 
 <p align="center">
   <a href="#빠르게-시작하기">빠르게 시작하기</a> ·
-  <a href="#전송하기">전송하기</a> ·
+  <a href="#시험판-기능">주요 기능</a> ·
   <a href="#ai-에이전트에서-사용하기">AI 스킬</a> ·
-  <a href="#제한과-개인정보">제한과 개인정보</a>
+  <a href="#제한과-개인정보">적용 범위와 제한</a>
 </p>
 
 ---
 
 ## 빠르게 시작하기
 
-Windows x64, 로그인된 PC 카카오톡과 Windows 한글 OCR이 필요합니다. [시험판 릴리스](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2)에서 ZIP을 내려받아 압축을 풀고, 해당 폴더에서 PowerShell을 엽니다.
+**Windows x64**, 로그인된 PC 카카오톡, Windows 한글 OCR이 필요합니다.
+
+1. [공개 시험판 ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2)을 내려받아 압축을 풉니다.
+2. 압축을 푼 폴더에서 PowerShell을 열고 아래 명령을 실행합니다.
 
 ```powershell
-.\kakao.cmd status
-.\kakao.cmd open-chats
-.\kakao.cmd screen
+.\kakao.cmd status       # 카카오톡 실행 상태
+.\kakao.cmd open-chats   # 현재 열린 채팅창 제목
+.\kakao.cmd screen       # 카카오톡 메인 창 OCR
 ```
 
-`status` 결과의 `edition`은 `public_preview`입니다. 화면 읽기는 표시된 부분의 OCR 결과이며 누락이나 오인식이 있을 수 있습니다.
+결과는 JSON으로 반환됩니다. 공개 시험판의 `status`에는 `edition: public_preview`가 표시됩니다.
 
 ## 시험판 기능
 
-| 확인 | 읽기 | 전송 |
+확인하고, 읽고, 보내는 작업을 하나의 흐름으로 연결합니다.
+
+| 01 · 확인 | 02 · 화면 읽기 | 03 · 전송 |
 | :--- | :--- | :--- |
-| 실행 상태와 현재 열린 채팅창 제목을 확인합니다. | 메인 창 또는 이미 열린 대화창의 화면을 읽습니다. | 이미 열린 채팅창에 메시지 또는 파일을 보냅니다. |
+| **열린 창을 확인합니다** | **화면에 표시된 부분을 읽습니다** | **메시지와 파일을 보냅니다** |
+| PC 카카오톡의 실행 여부와 현재 열린 대화창 제목을 확인합니다. | 메인 창이나 이미 열린 대화창을 OCR로 읽습니다. | 이미 열린 대화창에 한 줄 메시지나 파일을 전송합니다. |
+
+## 사용 모습
 
 <p align="center">
-  <img src="assets/flow.svg" alt="명령줄에서 카카오톡을 거쳐 JSON 결과를 받는 흐름" width="880">
+  <img src="assets/flow-showcase.svg" alt="명령줄 또는 AI 에이전트에서 카카오톡 PC로 요청하고 JSON 결과를 받는 흐름" width="100%">
 </p>
+
+**명령 한 번으로 요청하고, JSON으로 결과를 확인합니다.** 이미 로그인된 PC 카카오톡을 사용하므로 별도 로그인 과정이 없습니다.
+
+<details>
+<summary><strong>열린 채팅창 화면 읽기 예시</strong></summary>
+
+```powershell
+@{chat='정확한 열린 창 제목'} | ConvertTo-Json -Compress | .\kakao.cmd messages
+```
+
+화면에 렌더링된 부분을 OCR로 읽으므로 일부 내용이 빠지거나 잘못 인식될 수 있습니다. 창 제목만으로 대화방의 실제 ID나 수신자가 확인되는 것은 아닙니다.
+
+</details>
+
+## AI 에이전트에서 사용하기
+
+Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/kakao-bridge`에 포함되어 있습니다. 각 에이전트의 스킬 폴더에 복사하고, 압축을 푼 `kakao.cmd`의 전체 경로를 알려 주세요. 같은 이름의 스킬이 이미 있다면 기존 설치본을 덮어쓰지 마세요.
+
+| 구성 | 사용 방법 |
+| :--- | :--- |
+| Windows ZIP | 압축을 풀고 `kakao.cmd`를 실행합니다. |
+| AI 스킬 | `skills/kakao-bridge`를 Codex 또는 Claude Code의 스킬 폴더에 복사합니다. |
 
 ## 전송하기
 
-**메시지와 파일 전송은 다른 창의 포커스를 바꿀 수 있습니다.** 파일 전송은 마우스 포인터도 잠시 움직일 수 있습니다. 포커스 변경을 허용하지 않으면 사용하지 마세요. 열린 창의 제목은 정확히 일치해야 하지만 제목만으로 실제 방 ID나 수신자가 확인되지는 않습니다. 이 두 제한을 받아들인 경우에만 아래 두 옵션을 지정합니다.
+**대화창을 먼저 열어 두어야 합니다.** 전송 중 포커스가 바뀔 수 있으며, 파일 전송은 마우스 포인터도 잠시 움직일 수 있습니다. 열린 창 제목이 정확히 일치해도 실제 방 ID나 수신자를 증명하지는 않습니다. 이 두 조건을 허용할 때 아래 옵션을 지정합니다.
 
 ```powershell
 @{chat='정확한 열린 창 제목';message='한 줄 메시지';allow_focus_change=$true;allow_unverified_title=$true} |
@@ -58,25 +92,35 @@ Windows x64, 로그인된 PC 카카오톡과 Windows 한글 OCR이 필요합니�
   ConvertTo-Json -Compress | .\kakao.cmd send-file
 ```
 
-`submitted_unconfirmed`는 전송 요청을 뜻하며 수신 확인은 아닙니다. 결과가 불확실하면 자동으로 다시 보내지 말고 대화창을 확인하세요. 입력창의 작성 내용이 있으면 메시지 전송을 중단합니다.
-
-## AI 에이전트에서 사용하기
-
-ZIP에 `skills/kakao-bridge`가 포함되어 있습니다. Codex 또는 Claude Code의 스킬 폴더에 복사하고 압축을 푼 `kakao.cmd`의 전체 경로를 알려 주세요. 같은 이름의 스킬이 이미 있다면 기존 설치본을 덮어쓰지 마세요. 공개 시험판 스킬은 `status`의 `edition`을 확인하여 개인용 설치본과 구분합니다.
+`submitted_unconfirmed`는 전송 요청을 뜻하며 수신 확인은 아닙니다. 결과가 불확실하면 자동으로 다시 보내지 말고 대화창을 확인하세요. 입력창에 작성 중인 내용이 있으면 메시지 전송을 중단합니다.
 
 ## 제한과 개인정보
 
-- 이 시험판은 전체 친구·대화 목록 조회, 채팅방 자동 열기, 파일 다운로드를 지원하지 않습니다. 기존 완성 기능의 전체 대체판이 아닙니다.
-- 이 빌드로 나와의 채팅에 메시지와 파일을 전송했습니다. 파일은 별도 개인용 도구로 다시 내려받아 원본과 해시가 일치하는 것을 확인했습니다. 공개판 자체는 파일 다운로드를 지원하지 않습니다.
-- 최소화된 창의 OCR은 지원하지 않습니다. OCR은 메시지의 전체 기록이나 정확한 수신자 확인을 대신하지 않습니다.
+- 공개 시험판은 **전체 친구·대화 목록 조회, 채팅방 자동 열기, 파일 다운로드를 지원하지 않습니다.**
+- OCR은 화면에 표시된 일부만 읽으며 누락이나 오인식이 있을 수 있습니다. 최소화된 창은 읽을 수 없습니다.
 - 이 공개판은 복호화 키를 탐색하거나 로컬 대화 데이터베이스를 직접 복호화하지 않습니다.
-- 출력에는 친구 이름과 대화 내용이 포함될 수 있습니다. AI 서비스에 전달하면 해당 서비스로 내용이 전달될 수 있습니다.
-- 시험판 실행 파일은 코드 서명이 없습니다. `SHA256SUMS.txt`는 다운로드한 파일의 일치 여부를 확인합니다.
+- 명령 결과에는 이름과 대화 내용이 포함될 수 있습니다. AI 서비스에 전달하면 해당 서비스로 내용이 전달될 수 있습니다.
+- 실행 파일은 코드 서명이 없습니다. 동봉된 `SHA256SUMS.txt`로 다운로드한 파일의 일치 여부를 확인할 수 있습니다.
+
+<details>
+<summary><strong>시험 범위</strong></summary>
+
+이 빌드로 나와의 채팅에 메시지와 파일을 전송했습니다. 파일은 별도 개인용 도구로 다시 내려받아 원본과 해시가 일치하는 것을 확인했습니다. 공개판 자체는 파일 다운로드를 지원하지 않습니다.
+
+</details>
+
+<details>
+<summary><strong>English overview</strong></summary>
+
+Kakao Bridge is a Windows public preview connecting an already signed-in KakaoTalk PC client with command-line and AI workflows. It can inspect open window titles, read visible text with OCR, and request message or file sends to an already open chat. Focus may change, OCR can be incomplete, and window titles do not prove recipient identity.
+
+</details>
 
 ---
 
 <p align="center">
   <strong>Contentrium</strong><br>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2">공개 시험판 다운로드</a> ·
   <a href="THIRD-PARTY.md">제3자 라이선스</a>
 </p>
 

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="450" viewBox="0 0 1440 450" role="img" aria-labelledby="title desc">
+  <title id="title">From command to KakaoTalk to JSON</title><desc id="desc">A command addresses the running Windows client and returns a JSON response.</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#edf5ed"/><stop offset="1" stop-color="#deeee6"/></linearGradient></defs>
+  <rect width="1440" height="450" rx="28" fill="url(#bg)"/>
+  <text x="65" y="66" fill="#46776b" font-family="Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="4">HOW IT CONNECTS</text>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <rect x="60" y="105" width="390" height="265" rx="22" fill="#152935"/>
+    <text x="90" y="153" fill="#a4dfbd" font-size="18" font-weight="700" letter-spacing="2">01  COMMAND</text>
+    <text x="90" y="210" fill="#fff" font-family="Consolas,monospace" font-size="21">&gt; kakao.cmd status</text>
+    <text x="90" y="262" fill="#adc6bd" font-size="19">Ask from a terminal</text>
+    <text x="90" y="290" fill="#adc6bd" font-size="19">or an AI agent.</text>
+    <rect x="525" y="105" width="390" height="265" rx="22" fill="#ffffff"/>
+    <text x="555" y="153" fill="#4a8877" font-size="18" font-weight="700" letter-spacing="2">02  KAKAOTALK PC</text>
+    <rect x="555" y="179" width="76" height="64" rx="19" fill="#ffe17a"/><path d="M575 201h36v19h-21l-8 7v-7h-7z" fill="#514839"/>
+    <text x="555" y="277" fill="#3b5d53" font-size="19">Works with your signed-in</text>
+    <text x="555" y="305" fill="#3b5d53" font-size="19">Windows client.</text>
+    <rect x="990" y="105" width="390" height="265" rx="22" fill="#1b4643"/>
+    <text x="1020" y="153" fill="#a4dfbd" font-size="18" font-weight="700" letter-spacing="2">03  JSON RESPONSE</text>
+    <text x="1020" y="210" fill="#fff" font-family="Consolas,monospace" font-size="20">{ "edition": ... }</text>
+    <text x="1020" y="262" fill="#bed9ca" font-size="19">A structured result for</text>
+    <text x="1020" y="290" fill="#bed9ca" font-size="19">the next step.</text>
+  </g>
+  <g stroke="#6aa694" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M472 235h30m-9-9 9 9-9 9"/><path d="M937 235h30m-9-9 9 9-9 9"/></g>
+</svg>
