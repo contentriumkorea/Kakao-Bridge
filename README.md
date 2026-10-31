@@ -11,11 +11,11 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-x64-286789?style=flat-square" alt="Windows x64">
-  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.6-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.6">
+  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.7-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.7">
 </p>
 
 <p align="center">
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.6"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.7"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@
 
 **Windows x64**, 로그인된 PC 카카오톡, Windows 한글 OCR이 필요합니다.
 
-1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.6)을 내려받아 압축을 풉니다.
+1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.7)을 내려받아 압축을 풉니다.
 2. 압축을 푼 폴더에서 PowerShell을 열고 아래 명령을 실행합니다.
 
 ```powershell
@@ -100,7 +100,7 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 
 ## 전송하기
 
-`open`으로 대상 대화창을 열 수 있습니다. 현재 대화방 열기는 96 DPI에서만 시도합니다. 창을 열거나 전송하는 중 포커스가 바뀔 수 있으며, 파일 전송은 마우스 포인터도 잠시 움직일 수 있습니다. 열린 창 제목이 정확히 일치해도 실제 방 ID나 수신자를 증명하지는 않습니다. 이 두 조건을 허용할 때 아래 옵션을 지정합니다.
+`open`으로 대상 대화창을 열 수 있습니다. 현재 대화방 열기는 96 DPI에서만 시도합니다. 창을 열거나 전송하는 중 포커스가 바뀔 수 있으며, 파일 전송은 채팅창을 활성화하고 카카오톡의 `Ctrl+T` 단축키로 파일 선택창을 엽니다. 사용자가 키보드나 마우스를 사용 중이면 중단하며, Windows 입력과 포커스 확인은 동시에 일어나는 사용자 입력을 완전히 차단하지 못합니다. 열린 창 제목이 정확히 일치해도 실제 방 ID나 수신자를 증명하지는 않습니다. 이 두 조건을 허용할 때 아래 옵션을 지정합니다.
 
 ```powershell
 # 나와의 채팅 열기: 본인 창의 정확한 제목을 지정합니다.
@@ -146,7 +146,7 @@ Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line
 
 <p align="center">
   <strong>Contentrium</strong><br>
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.6">Kakao Bridge 다운로드</a> ·
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.7">Kakao Bridge 다운로드</a> ·
   <a href="THIRD-PARTY.md">제3자 라이선스</a>
 </p>
 
