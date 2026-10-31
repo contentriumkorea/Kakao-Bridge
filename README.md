@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/cover-showcase.svg" alt="Kakao Bridge — PC 카카오톡과 AI 작업 흐름을 연결합니다" width="100%">
+  <img src="assets/cover-kakao-bridge.svg" alt="Kakao Bridge — PC 카카오톡과 AI 작업 흐름을 연결합니다" width="100%">
 </p>
 
 <h1 align="center">Kakao Bridge</h1>
@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2"><img src="assets/download-preview.svg" alt="Kakao Bridge 다운로드" width="330"></a>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
 </p>
 
 <p align="center">
