@@ -1,7 +1,16 @@
 # 제3자 구성요소
 
-배포 ZIP의 `licenses` 폴더에는 프로그램이 사용하는 제3자 구성요소의 저작권과 라이선스 고지가 포함되어 있습니다. 데이터베이스 처리 구성에는 [kakaotalk-cli](https://github.com/nhs04047/kakaotalk-cli)의 MIT 라이선스 코드가 포함됩니다. OpenSSL과 zlib 라이선스도 ZIP에 포함되어 있습니다.
+메시지 전송 구성요소를 빌드할 때 사용한 구성요소와 제공된 라이선스 사본입니다.
 
-이 저장소는 실행 패키지와 사용 안내를 배포합니다. KakaoTalk 및 관련 상표는 각 권리자에게 속합니다.
+- itoa 1.0.15: MIT OR Apache-2.0
+- memchr 2.7.4: Unlicense OR MIT
+- proc-macro2 1.0.95: MIT OR Apache-2.0
+- quote 1.0.40: MIT OR Apache-2.0
+- ryu 1.0.20: Apache-2.0 OR BSL-1.0
+- serde 1.0.219: MIT OR Apache-2.0
+- serde_derive 1.0.219: MIT OR Apache-2.0
+- serde_json 1.0.140: MIT OR Apache-2.0
+- syn 2.0.100: MIT OR Apache-2.0
+- unicode-ident 1.0.18: (MIT OR Apache-2.0) AND Unicode-3.0
 
-이 저장소에는 안내와 에이전트 스킬이 공개되어 있지만, Kakao Bridge의 핵심 프로그램 소스 전체는 공개되어 있지 않습니다. Kakao Bridge 자체의 별도 공개 소스 라이선스는 지정하지 않았습니다. 포함된 제3자 구성요소에는 각각의 라이선스가 계속 적용됩니다.
+Kakao Bridge 자체의 별도 공개 소스 라이선스는 지정하지 않았습니다. 각 제3자 구성요소에는 위의 개별 라이선스가 적용됩니다.

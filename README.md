@@ -6,37 +6,72 @@
 
 <p align="center">
   <strong>PC 카카오톡을 명령줄과 AI 작업 흐름에 연결합니다.</strong><br>
-  화면과 접근성 기능을 활용하는 Windows용 CLI를 준비하고 있습니다.
+  화면과 Windows 기능을 활용하는 공개 시험판입니다.
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-x64-1479e8" alt="Windows x64">
-  <img src="https://img.shields.io/badge/공개판-준비%20중-f0b72f" alt="공개판 준비 중">
+  <img src="https://img.shields.io/badge/상태-시험판-f0b72f" alt="시험판">
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.1"><img src="https://img.shields.io/badge/공개_시험판-다운로드-222222" alt="공개 시험판 다운로드"></a>
+</p>
+
+<p align="center">
+  <a href="#빠르게-시작하기">빠르게 시작하기</a> ·
+  <a href="#전송하기">전송하기</a> ·
+  <a href="#ai-에이전트에서-사용하기">AI 스킬</a> ·
+  <a href="#제한과-개인정보">제한과 개인정보</a>
 </p>
 
 ---
 
-## 공개판 준비 중
+## 빠르게 시작하기
 
-현재 공개 다운로드는 제공하지 않습니다. 이전 공개 배포는 종료되었으며, 화면과 Windows 접근성 정보를 활용하는 새로운 공개판을 준비하고 있습니다. 새 공개판에는 로컬 대화 데이터의 복호화 키를 찾거나 데이터베이스를 직접 복호화하는 기능을 넣지 않을 예정입니다.
+Windows x64, 로그인된 PC 카카오톡과 Windows 한글 OCR이 필요합니다. [시험판 릴리스](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.1)에서 ZIP을 내려받아 압축을 풀고, 해당 폴더에서 PowerShell을 엽니다.
 
-## 개발 방향
+```powershell
+.\kakao.cmd status
+.\kakao.cmd open-chats
+.\kakao.cmd screen
+```
 
-| 읽기 | 조작 | AI 연결 |
+`status` 결과의 `edition`은 `public_preview`입니다. 화면 읽기는 표시된 부분의 OCR 결과이며 누락이나 오인식이 있을 수 있습니다.
+
+## 시험판 기능
+
+| 확인 | 읽기 | 전송 |
 | :--- | :--- | :--- |
-| 카카오톡이 화면에 표시하는 정보를 읽습니다. | 로그인된 PC 카카오톡의 기능을 이용합니다. | 명령과 결과를 AI 작업 흐름에서 사용할 수 있도록 구성합니다. |
+| 실행 상태와 현재 열린 채팅창 제목을 확인합니다. | 메인 창 또는 이미 열린 대화창의 화면을 읽습니다. | 이미 열린 채팅창에 메시지 또는 파일을 보냅니다. |
 
 <p align="center">
   <img src="assets/flow.svg" alt="명령줄에서 카카오톡을 거쳐 JSON 결과를 받는 흐름" width="880">
 </p>
 
-친구·대화 목록과 메시지, 파일 전송과 다운로드는 개발 및 검증 중입니다. 현재 모든 기능이 동작하거나 포커스를 유지한다고 보장하지 않습니다. 화면의 문자 인식은 누락이나 오인식이 있을 수 있습니다.
+## 전송하기
 
-## 사용 환경과 개인정보
+**메시지와 파일 전송은 다른 창의 포커스를 바꿀 수 있습니다.** 파일 전송은 마우스 포인터도 잠시 움직일 수 있습니다. 포커스 변경을 허용하지 않으면 사용하지 마세요. 열린 창의 제목은 정확히 일치해야 하지만 제목만으로 실제 방 ID나 수신자가 확인되지는 않습니다. 이 두 제한을 받아들인 경우에만 아래 두 옵션을 지정합니다.
 
-- Windows와 로그인된 PC 카카오톡이 필요합니다. 화면 읽기에는 Windows의 한글 문자 인식 기능이 필요할 수 있습니다.
-- 화면에서 읽은 정보에는 친구 이름과 대화 내용이 포함될 수 있습니다. AI 서비스에 전달하는 경우 해당 서비스로 내용이 전달될 수 있습니다.
-- 공개판의 다운로드, 사용 명령과 AI 스킬은 준비와 검증을 마친 뒤 안내합니다.
+```powershell
+@{chat='정확한 열린 창 제목';message='한 줄 메시지';allow_focus_change=$true;allow_unverified_title=$true} |
+  ConvertTo-Json -Compress | .\kakao.cmd send
+
+@{chat='정확한 열린 창 제목';file='C:\절대경로\파일.pdf';allow_focus_change=$true;allow_unverified_title=$true} |
+  ConvertTo-Json -Compress | .\kakao.cmd send-file
+```
+
+`submitted_unconfirmed`는 전송 요청을 뜻하며 수신 확인은 아닙니다. 결과가 불확실하면 자동으로 다시 보내지 말고 대화창을 확인하세요. 입력창의 작성 내용이 있으면 메시지 전송을 중단합니다.
+
+## AI 에이전트에서 사용하기
+
+ZIP에 `skills/kakao-bridge`가 포함되어 있습니다. Codex 또는 Claude Code의 스킬 폴더에 복사하고 압축을 푼 `kakao.cmd`의 전체 경로를 알려 주세요. 같은 이름의 스킬이 이미 있다면 기존 설치본을 덮어쓰지 마세요. 공개 시험판 스킬은 `status`의 `edition`을 확인하여 개인용 설치본과 구분합니다.
+
+## 제한과 개인정보
+
+- 이 시험판은 전체 친구·대화 목록 조회, 채팅방 자동 열기, 파일 다운로드를 지원하지 않습니다. 기존 완성 기능의 전체 대체판이 아닙니다.
+- 나와의 채팅에서 메시지 전송을 확인했습니다. 파일은 직전 시험 빌드에서 전송 후 다시 받아 원본과 일치함을 확인했으며, 이 최종 빌드의 파일 전송은 아직 실제 카카오톡으로 재검증하지 않았습니다.
+- 최소화된 창의 OCR은 지원하지 않습니다. OCR은 메시지의 전체 기록이나 정확한 수신자 확인을 대신하지 않습니다.
+- 이 공개판은 복호화 키를 탐색하거나 로컬 대화 데이터베이스를 직접 복호화하지 않습니다.
+- 출력에는 친구 이름과 대화 내용이 포함될 수 있습니다. AI 서비스에 전달하면 해당 서비스로 내용이 전달될 수 있습니다.
+- 시험판 실행 파일은 코드 서명이 없습니다. `SHA256SUMS.txt`는 다운로드한 파일의 일치 여부를 확인합니다.
 
 ---
 

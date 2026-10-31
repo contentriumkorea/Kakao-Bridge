@@ -1,3 +1,3 @@
 interface:
   display_name: "Kakao Bridge"
-  short_description: "Control KakaoTalk chats and files from Windows"
+  short_description: "Read and send to open KakaoTalk PC chats"
