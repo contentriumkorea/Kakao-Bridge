@@ -6,22 +6,21 @@
 
 <p align="center">
   <strong>PC 카카오톡을 AI와 명령줄에 연결하세요.</strong><br>
-  이미 로그인된 카카오톡으로 확인하고, 읽고, 전송하는 Windows용 공개 시험판입니다.
+  이미 로그인된 카카오톡으로 확인하고, 읽고, 전송하는 Windows용 도구입니다.
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-x64-286789?style=flat-square" alt="Windows x64">
   <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.2-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.2">
-  <img src="https://img.shields.io/badge/상태-공개_시험판-358472?style=flat-square" alt="공개 시험판">
 </p>
 
 <p align="center">
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2"><img src="assets/download-preview.svg" alt="공개 시험판 다운로드" width="330"></a>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2"><img src="assets/download-preview.svg" alt="Kakao Bridge 다운로드" width="330"></a>
 </p>
 
 <p align="center">
   <a href="#빠르게-시작하기">빠르게 시작하기</a> ·
-  <a href="#시험판-기능">주요 기능</a> ·
+  <a href="#주요-기능">주요 기능</a> ·
   <a href="#ai-에이전트에서-사용하기">AI 스킬</a> ·
   <a href="#제한과-개인정보">적용 범위와 제한</a>
 </p>
@@ -32,7 +31,7 @@
 
 **Windows x64**, 로그인된 PC 카카오톡, Windows 한글 OCR이 필요합니다.
 
-1. [공개 시험판 ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2)을 내려받아 압축을 풉니다.
+1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2)을 내려받아 압축을 풉니다.
 2. 압축을 푼 폴더에서 PowerShell을 열고 아래 명령을 실행합니다.
 
 ```powershell
@@ -41,9 +40,9 @@
 .\kakao.cmd screen       # 카카오톡 메인 창 OCR
 ```
 
-결과는 JSON으로 반환됩니다. 공개 시험판의 `status`에는 `edition: public_preview`가 표시됩니다.
+결과는 JSON으로 반환됩니다. `status`에는 `edition: public_preview`가 표시됩니다.
 
-## 시험판 기능
+## 주요 기능
 
 확인하고, 읽고, 보내는 작업을 하나의 흐름으로 연결합니다.
 
@@ -96,7 +95,7 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 
 ## 제한과 개인정보
 
-- 공개 시험판은 **전체 친구·대화 목록 조회, 채팅방 자동 열기, 파일 다운로드를 지원하지 않습니다.**
+- 현재 공개판은 **전체 친구·대화 목록 조회, 채팅방 자동 열기, 파일 다운로드를 지원하지 않습니다.**
 - OCR은 화면에 표시된 일부만 읽으며 누락이나 오인식이 있을 수 있습니다. 최소화된 창은 읽을 수 없습니다.
 - 이 공개판은 복호화 키를 탐색하거나 로컬 대화 데이터베이스를 직접 복호화하지 않습니다.
 - 명령 결과에는 이름과 대화 내용이 포함될 수 있습니다. AI 서비스에 전달하면 해당 서비스로 내용이 전달될 수 있습니다.
@@ -112,7 +111,7 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 <details>
 <summary><strong>English overview</strong></summary>
 
-Kakao Bridge is a Windows public preview connecting an already signed-in KakaoTalk PC client with command-line and AI workflows. It can inspect open window titles, read visible text with OCR, and request message or file sends to an already open chat. Focus may change, OCR can be incomplete, and window titles do not prove recipient identity.
+Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line and AI workflows. It can inspect open window titles, read visible text with OCR, and request message or file sends to an already open chat. Focus may change, OCR can be incomplete, and window titles do not prove recipient identity.
 
 </details>
 
@@ -120,7 +119,7 @@ Kakao Bridge is a Windows public preview connecting an already signed-in KakaoTa
 
 <p align="center">
   <strong>Contentrium</strong><br>
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2">공개 시험판 다운로드</a> ·
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2">Kakao Bridge 다운로드</a> ·
   <a href="THIRD-PARTY.md">제3자 라이선스</a>
 </p>
 
