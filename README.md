@@ -9,6 +9,11 @@
   실행 중인 Windows 카카오톡에서 대화와 파일을 다루는 실험용 CLI입니다.
 </p>
 
+> [!CAUTION]
+> **비공식 도구 · 카카오톡 이용 제한 가능성**
+>
+> Kakao Bridge는 카카오가 제공하거나 승인한 공식 도구가 아닙니다. PC 카카오톡의 메모리에서 복호화 키를 찾아 암호화된 로컬 대화 데이터를 읽는 비공식 방식이 포함되어 있습니다. 이용 또는 배포가 카카오의 정책에 저촉될 소지가 있으며, 계정이나 서비스 이용이 제한될 수 있습니다. 이 도구에 대한 카카오의 개별 판단과 법적 결론은 확인되지 않았습니다. 사용하기 전에 [카카오톡 운영정책](https://talksafety.kakao.com/policy/stability/abnormalusage)을 직접 확인하세요.
+
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-x64-1479e8" alt="Windows x64">
   <img src="https://img.shields.io/badge/상태-실험용-f0b72f" alt="실험용">

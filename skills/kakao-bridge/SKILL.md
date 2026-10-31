@@ -5,7 +5,7 @@ description: Use Kakao Bridge on Windows to inspect the signed-in KakaoTalk PC c
 
 # Kakao Bridge
 
-Use the installed or extracted Kakao Bridge CLI and the already signed-in KakaoTalk PC app. No separate login or MCP is required. This Windows CLI is experimental.
+Use the installed or extracted Kakao Bridge CLI and the already signed-in KakaoTalk PC app. No separate login or MCP is required. This Windows CLI is experimental and unofficial. It obtains a local database decryption key from the running app's memory. Use or distribution may conflict with Kakao's policy and may result in account or service restrictions; this tool's status under the policy and applicable law has not been determined. If the user asks about safety or policy, explain these facts without asserting legal certainty and refer to https://talksafety.kakao.com/policy/stability/abnormalusage.
 
 ## Locate the CLI
 

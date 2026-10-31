@@ -1,0 +1,3 @@
+interface:
+  display_name: "Kakao Bridge"
+  short_description: "Control KakaoTalk chats and files from Windows"
