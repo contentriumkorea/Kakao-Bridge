@@ -12,7 +12,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-x64-1479e8" alt="Windows x64">
   <img src="https://img.shields.io/badge/상태-시험판-f0b72f" alt="시험판">
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.1"><img src="https://img.shields.io/badge/공개_시험판-다운로드-222222" alt="공개 시험판 다운로드"></a>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2"><img src="https://img.shields.io/badge/공개_시험판-다운로드-222222" alt="공개 시험판 다운로드"></a>
 </p>
 
 <p align="center">
@@ -26,7 +26,7 @@
 
 ## 빠르게 시작하기
 
-Windows x64, 로그인된 PC 카카오톡과 Windows 한글 OCR이 필요합니다. [시험판 릴리스](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.1)에서 ZIP을 내려받아 압축을 풀고, 해당 폴더에서 PowerShell을 엽니다.
+Windows x64, 로그인된 PC 카카오톡과 Windows 한글 OCR이 필요합니다. [시험판 릴리스](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2)에서 ZIP을 내려받아 압축을 풀고, 해당 폴더에서 PowerShell을 엽니다.
 
 ```powershell
 .\kakao.cmd status
@@ -67,7 +67,7 @@ ZIP에 `skills/kakao-bridge`가 포함되어 있습니다. Codex 또는 Claude C
 ## 제한과 개인정보
 
 - 이 시험판은 전체 친구·대화 목록 조회, 채팅방 자동 열기, 파일 다운로드를 지원하지 않습니다. 기존 완성 기능의 전체 대체판이 아닙니다.
-- 나와의 채팅에서 메시지 전송을 확인했습니다. 파일은 직전 시험 빌드에서 전송 후 다시 받아 원본과 일치함을 확인했으며, 이 최종 빌드의 파일 전송은 아직 실제 카카오톡으로 재검증하지 않았습니다.
+- 이 빌드로 나와의 채팅에 메시지와 파일을 전송했습니다. 파일은 별도 개인용 도구로 다시 내려받아 원본과 해시가 일치하는 것을 확인했습니다. 공개판 자체는 파일 다운로드를 지원하지 않습니다.
 - 최소화된 창의 OCR은 지원하지 않습니다. OCR은 메시지의 전체 기록이나 정확한 수신자 확인을 대신하지 않습니다.
 - 이 공개판은 복호화 키를 탐색하거나 로컬 대화 데이터베이스를 직접 복호화하지 않습니다.
 - 출력에는 친구 이름과 대화 내용이 포함될 수 있습니다. AI 서비스에 전달하면 해당 서비스로 내용이 전달될 수 있습니다.
