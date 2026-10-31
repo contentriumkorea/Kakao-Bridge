@@ -11,11 +11,11 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-x64-286789?style=flat-square" alt="Windows x64">
-  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.2-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.2">
+  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.3-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.3">
 </p>
 
 <p align="center">
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.3"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@
 
 **Windows x64**, 로그인된 PC 카카오톡, Windows 한글 OCR이 필요합니다.
 
-1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2)을 내려받아 압축을 풉니다.
+1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.3)을 내려받아 압축을 풉니다.
 2. 압축을 푼 폴더에서 PowerShell을 열고 아래 명령을 실행합니다.
 
 ```powershell
@@ -48,8 +48,8 @@
 
 | 01 · 확인 | 02 · 화면 읽기 | 03 · 전송 |
 | :--- | :--- | :--- |
-| **열린 창을 확인합니다** | **화면에 표시된 부분을 읽습니다** | **메시지와 파일을 보냅니다** |
-| PC 카카오톡의 실행 여부와 현재 열린 대화창 제목을 확인합니다. | 메인 창이나 이미 열린 대화창을 OCR로 읽습니다. | 이미 열린 대화창에 한 줄 메시지나 파일을 전송합니다. |
+| **대화창을 열고 확인합니다** | **화면에 표시된 부분을 읽습니다** | **메시지와 파일을 보냅니다** |
+| 닫힌 메인 창을 복원하고 대화방을 찾아 열거나 열린 창 제목을 확인합니다. | 메인 창이나 이미 열린 대화창을 OCR로 읽습니다. | 이미 열린 대화창에 한 줄 메시지나 파일을 전송합니다. |
 
 ## 사용 모습
 
@@ -81,9 +81,13 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 
 ## 전송하기
 
-**대화창을 먼저 열어 두어야 합니다.** 전송 중 포커스가 바뀔 수 있으며, 파일 전송은 마우스 포인터도 잠시 움직일 수 있습니다. 열린 창 제목이 정확히 일치해도 실제 방 ID나 수신자를 증명하지는 않습니다. 이 두 조건을 허용할 때 아래 옵션을 지정합니다.
+`open`으로 대상 대화창을 열 수 있습니다. 현재 대화방 열기는 96 DPI에서만 시도합니다. 창을 열거나 전송하는 중 포커스가 바뀔 수 있으며, 파일 전송은 마우스 포인터도 잠시 움직일 수 있습니다. 열린 창 제목이 정확히 일치해도 실제 방 ID나 수신자를 증명하지는 않습니다. 이 두 조건을 허용할 때 아래 옵션을 지정합니다.
 
 ```powershell
+# 나와의 채팅 열기: 본인 창의 정확한 제목을 지정합니다.
+@{chat='본인 창의 정확한 제목';self=$true;allow_focus_change=$true;allow_unverified_title=$true} |
+  ConvertTo-Json -Compress | .\kakao.cmd open
+
 @{chat='정확한 열린 창 제목';message='한 줄 메시지';allow_focus_change=$true;allow_unverified_title=$true} |
   ConvertTo-Json -Compress | .\kakao.cmd send
 
@@ -95,7 +99,7 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 
 ## 제한과 개인정보
 
-- 현재 공개판은 **전체 친구·대화 목록 조회, 채팅방 자동 열기, 파일 다운로드를 지원하지 않습니다.**
+- 현재 공개판은 **전체 친구·대화 목록 조회와 파일 다운로드를 지원하지 않습니다.**
 - OCR은 화면에 표시된 일부만 읽으며 누락이나 오인식이 있을 수 있습니다. 최소화된 창은 읽을 수 없습니다.
 - 이 공개판은 복호화 키를 탐색하거나 로컬 대화 데이터베이스를 직접 복호화하지 않습니다.
 - 명령 결과에는 이름과 대화 내용이 포함될 수 있습니다. AI 서비스에 전달하면 해당 서비스로 내용이 전달될 수 있습니다.
@@ -104,14 +108,14 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 <details>
 <summary><strong>시험 범위</strong></summary>
 
-이 빌드로 나와의 채팅에 메시지와 파일을 전송했습니다. 파일은 별도 개인용 도구로 다시 내려받아 원본과 해시가 일치하는 것을 확인했습니다. 공개판 자체는 파일 다운로드를 지원하지 않습니다.
+이 빌드로 모든 창이 닫힌 상태에서 나와의 채팅을 열고 파일을 전송했습니다. 메시지 전송도 이전 빌드에서 확인했습니다. 파일은 별도 개인용 도구로 다시 내려받아 원본과 해시가 일치하는 것을 확인했습니다. 공개판 자체는 파일 다운로드를 지원하지 않습니다.
 
 </details>
 
 <details>
 <summary><strong>English overview</strong></summary>
 
-Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line and AI workflows. It can inspect open window titles, read visible text with OCR, and request message or file sends to an already open chat. Focus may change, OCR can be incomplete, and window titles do not prove recipient identity.
+Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line and AI workflows. It can inspect open window titles, read visible text with OCR, open a room by title, and request message or file sends to that room. Focus may change, OCR can be incomplete, and window titles do not prove recipient identity.
 
 </details>
 
@@ -119,7 +123,7 @@ Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line
 
 <p align="center">
   <strong>Contentrium</strong><br>
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.2">Kakao Bridge 다운로드</a> ·
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.3">Kakao Bridge 다운로드</a> ·
   <a href="THIRD-PARTY.md">제3자 라이선스</a>
 </p>
 
