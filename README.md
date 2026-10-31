@@ -11,11 +11,11 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-x64-286789?style=flat-square" alt="Windows x64">
-  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.3-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.3">
+  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.4-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.4">
 </p>
 
 <p align="center">
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.3"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.4"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@
 
 **Windows x64**, 로그인된 PC 카카오톡, Windows 한글 OCR이 필요합니다.
 
-1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.3)을 내려받아 압축을 풉니다.
+1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.4)을 내려받아 압축을 풉니다.
 2. 압축을 푼 폴더에서 PowerShell을 열고 아래 명령을 실행합니다.
 
 ```powershell
@@ -97,6 +97,10 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 
 `submitted_unconfirmed`는 전송 요청을 뜻하며 수신 확인은 아닙니다. 결과가 불확실하면 자동으로 다시 보내지 말고 대화창을 확인하세요. 입력창에 작성 중인 내용이 있으면 메시지 전송을 중단합니다.
 
+입력란의 기존 내용은 안내 문구와 같아도 초안일 수 있습니다. 해당 내용을 대체하도록 직접 허용할 때만 `allow_placeholder: true`와 정확히 일치하는 `expected_existing_text`를 함께 지정하세요. 메시지 전송 중에는 같은 채팅창과 입력란을 사용하지 마세요. 전송 확인과 사용자 입력은 완전히 원자적으로 처리되지 않습니다.
+
+열려 있지 않은 다른 대화방을 검색해 열 때는 `allow_search_input_changes: true`가 추가로 필요합니다. 검색 중 같은 검색창을 조작하면 입력이 바뀔 수 있으므로 이 영향을 허용한 경우에만 사용하세요. 검색어는 자동으로 지우지 않습니다. 나와의 채팅이나 이미 열린 창에는 이 옵션이 필요하지 않습니다.
+
 ## 제한과 개인정보
 
 - 현재 공개판은 **전체 친구·대화 목록 조회와 파일 다운로드를 지원하지 않습니다.**
@@ -108,7 +112,7 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 <details>
 <summary><strong>시험 범위</strong></summary>
 
-이 빌드로 모든 창이 닫힌 상태에서 나와의 채팅을 열고 파일을 전송했습니다. 메시지 전송도 이전 빌드에서 확인했습니다. 파일은 별도 개인용 도구로 다시 내려받아 원본과 해시가 일치하는 것을 확인했습니다. 공개판 자체는 파일 다운로드를 지원하지 않습니다.
+나와의 채팅에서 메시지와 파일 전송을 확인했습니다. 파일은 별도 개인용 도구로 다시 내려받아 원본과 해시가 일치하는 것을 확인했습니다. 공개판 자체는 파일 다운로드를 지원하지 않습니다. 전송 결과가 불확실하게 표시된 사례도 있어, 그 경우 실제 대화 기록을 확인한 뒤 진행해야 합니다.
 
 </details>
 
@@ -123,7 +127,7 @@ Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line
 
 <p align="center">
   <strong>Contentrium</strong><br>
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.3">Kakao Bridge 다운로드</a> ·
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.4">Kakao Bridge 다운로드</a> ·
   <a href="THIRD-PARTY.md">제3자 라이선스</a>
 </p>
 
@@ -132,3 +136,4 @@ Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line
 <p align="center">
   <a href="https://contentrium.com/"><img src="assets/home.svg" alt="콘텐츠리움 홈페이지 바로가기" width="260" height="52"></a>
 </p>
+
