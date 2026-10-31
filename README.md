@@ -11,11 +11,11 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-x64-286789?style=flat-square" alt="Windows x64">
-  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.4-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.4">
+  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.5-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.5">
 </p>
 
 <p align="center">
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.4"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.5"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
 </p>
 
 <p align="center">
@@ -31,16 +31,23 @@
 
 **Windows x64**, 로그인된 PC 카카오톡, Windows 한글 OCR이 필요합니다.
 
-1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.4)을 내려받아 압축을 풉니다.
+1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.5)을 내려받아 압축을 풉니다.
 2. 압축을 푼 폴더에서 PowerShell을 열고 아래 명령을 실행합니다.
 
 ```powershell
 .\kakao.cmd status       # 카카오톡 실행 상태
+.\kakao.cmd capabilities # 제공 기능과 제한
 .\kakao.cmd open-chats   # 현재 열린 채팅창 제목
 .\kakao.cmd screen       # 카카오톡 메인 창 OCR
+.\kakao.cmd friends      # 화면에 보이는 친구 목록 OCR
+.\kakao.cmd chats        # 화면에 보이는 대화 목록 OCR
 ```
 
 결과는 JSON으로 반환됩니다. `status`에는 `edition: public_preview`가 표시됩니다.
+
+`friends`와 `chats`는 각각 해당 탭의 **화면에 보이는 부분만** OCR로 읽습니다. 전체 목록이 아니며, 검색 필터·스크롤과 OCR 오류로 누락되거나 잘못 읽힐 수 있습니다. 해당 탭이 보이지 않으면 `LIST_TAB_NOT_VISIBLE`을 반환합니다.
+
+탭을 바꾸려면 `@{list='chats';allow_focus_change=$true;allow_search_input_changes=$true} | ConvertTo-Json -Compress | .\kakao.cmd show-list`를 사용합니다. `list`는 `friends` 또는 `chats`입니다. 탭 전환 중 검색창을 동시에 사용하면 입력에 영향이 생길 수 있으므로, 이 영향을 허용하고 검색창을 사용하지 않을 때만 실행하세요. 탭 변경이 필요한 경우 기존 검색어와 활성 검색을 확인하고 중단합니다. 이미 해당 탭이 보이는 경우에는 검색 필터가 유지될 수 있습니다.
 
 ## 주요 기능
 
@@ -107,12 +114,12 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 - OCR은 화면에 표시된 일부만 읽으며 누락이나 오인식이 있을 수 있습니다. 최소화된 창은 읽을 수 없습니다.
 - 이 공개판은 복호화 키를 탐색하거나 로컬 대화 데이터베이스를 직접 복호화하지 않습니다.
 - 명령 결과에는 이름과 대화 내용이 포함될 수 있습니다. AI 서비스에 전달하면 해당 서비스로 내용이 전달될 수 있습니다.
-- 실행 파일은 코드 서명이 없습니다. 동봉된 `SHA256SUMS.txt`로 다운로드한 파일의 일치 여부를 확인할 수 있습니다.
+- 실행 파일은 코드 서명이 없습니다. 릴리스에 함께 제공되는 `SHA256SUMS.txt`로 다운로드한 ZIP의 일치 여부를 확인할 수 있습니다.
 
 <details>
 <summary><strong>시험 범위</strong></summary>
 
-나와의 채팅에서 메시지와 파일 전송을 확인했습니다. 파일은 별도 개인용 도구로 다시 내려받아 원본과 해시가 일치하는 것을 확인했습니다. 공개판 자체는 파일 다운로드를 지원하지 않습니다. 전송 결과가 불확실하게 표시된 사례도 있어, 그 경우 실제 대화 기록을 확인한 뒤 진행해야 합니다.
+현재 화면의 친구 목록 OCR과 나와의 채팅 메시지·파일 전송을 확인했습니다. 대화 목록 OCR과 탭 전환은 모의 환경에서만 검증해 실제 카카오톡에서는 아직 확인하지 못했습니다. 파일은 별도 개인용 도구로 다시 내려받아 원본과 해시가 일치하는 것을 확인했습니다. 공개판 자체는 파일 다운로드를 지원하지 않습니다. 전송 결과가 불확실하게 표시된 사례도 있어, 그 경우 실제 대화 기록을 확인한 뒤 진행해야 합니다.
 
 </details>
 
@@ -127,7 +134,7 @@ Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line
 
 <p align="center">
   <strong>Contentrium</strong><br>
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.4">Kakao Bridge 다운로드</a> ·
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.5">Kakao Bridge 다운로드</a> ·
   <a href="THIRD-PARTY.md">제3자 라이선스</a>
 </p>
 
@@ -136,4 +143,3 @@ Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line
 <p align="center">
   <a href="https://contentrium.com/"><img src="assets/home.svg" alt="콘텐츠리움 홈페이지 바로가기" width="260" height="52"></a>
 </p>
-
