@@ -11,11 +11,11 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-x64-286789?style=flat-square" alt="Windows x64">
-  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.10-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.10">
+  <img src="https://img.shields.io/badge/버전-v0.2.0-e8ba39?style=flat-square" alt="버전 v0.2.0">
 </p>
 
 <p align="center">
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.10"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/download/v0.2.0/Kakao-Bridge-0.2.0.zip"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@
 
 **Windows x64**, 로그인된 PC 카카오톡, Windows 한글 OCR이 필요합니다.
 
-1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.10)을 내려받아 압축을 풉니다.
+1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/download/v0.2.0/Kakao-Bridge-0.2.0.zip)을 내려받아 압축을 풉니다.
 2. 압축을 푼 폴더에서 PowerShell을 열고 아래 명령을 실행합니다.
 
 ```powershell
@@ -159,7 +159,7 @@ Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line
 
 <p align="center">
   <strong>Contentrium</strong><br>
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.10">Kakao Bridge 다운로드</a> ·
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/download/v0.2.0/Kakao-Bridge-0.2.0.zip">Kakao Bridge 다운로드</a> ·
   <a href="LICENSE">MIT License</a> · <a href="THIRD-PARTY.md">제3자 라이선스</a>
 </p>
 
