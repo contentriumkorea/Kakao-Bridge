@@ -11,11 +11,11 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-x64-286789?style=flat-square" alt="Windows x64">
-  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.9-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.9">
+  <img src="https://img.shields.io/badge/버전-v0.2.0--alpha.10-e8ba39?style=flat-square" alt="버전 v0.2.0-alpha.10">
 </p>
 
 <p align="center">
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.9"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.10"><img src="assets/download-button-ko.svg" alt="Kakao Bridge 다운로드" width="330"></a>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@
 
 **Windows x64**, 로그인된 PC 카카오톡, Windows 한글 OCR이 필요합니다.
 
-1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.9)을 내려받아 압축을 풉니다.
+1. [Kakao Bridge ZIP](https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.10)을 내려받아 압축을 풉니다.
 2. 압축을 푼 폴더에서 PowerShell을 열고 아래 명령을 실행합니다.
 
 ```powershell
@@ -99,6 +99,18 @@ Codex와 Claude Code에서 사용할 **Kakao Bridge 스킬**이 ZIP의 `skills/k
 
 이미 등록된 설정은 자동으로 덮어쓰지 않습니다. 새 계정 사용 시 기존 설정을 보존하고 별도의 압축 해제 폴더에서 다시 등록하세요.
 
+## 소스에서 빌드하기
+Windows x64에서 Rust MSVC 툴체인과 Visual Studio C++ Build Tools(Windows SDK 포함)를 설치한 뒤, 저장소 루트에서 PowerShell로 실행하세요.
+
+```powershell
+cargo build --release --locked --bin kakao-public-sender
+New-Item -ItemType Directory -Force bin | Out-Null
+Copy-Item target/release/kakao-public-sender.exe bin/
+.\kakao.cmd doctor
+```
+
+공개판 자체 코드는 MIT 라이선스로 제공합니다. 의존성에는 각 구성요소의 라이선스가 적용됩니다.
+
 ## 전송하기
 
 `open`으로 대상 대화창을 열 수 있습니다. 대화방 열기는 창의 DPI 기준 좌표를 사용합니다. 여러 배율의 좌표 계산과 192 DPI Windows 시험 창은 검증했지만, 96 DPI 외 실제 카카오톡 환경은 아직 검증하지 못했습니다. 창을 열거나 전송하는 중 포커스가 바뀔 수 있으며, 파일 전송은 채팅창을 활성화하고 카카오톡의 `Ctrl+T` 단축키로 파일 선택창을 엽니다. 포커스 전환이 지연되면 입력 상태를 확인하며 단축키 전송 전에만 제한적으로 다시 시도합니다. 파일 확인창의 전송 문구는 한글 OCR로 확인하며, 전송을 시작하기 전에 OCR 사용 가능 여부를 검사합니다. 한글 OCR을 사용할 수 없다면 `doctor`로 확인한 뒤 Windows에 해당 OCR 기능을 설치해야 합니다. 식별이 불확실하면 중단합니다. 두 브릿지의 창 조작 명령은 동시에 실행되지 않습니다. 사용자가 키보드나 마우스를 사용 중이면 중단하며, Windows 입력과 포커스 확인은 동시에 일어나는 사용자 입력을 완전히 차단하지 못합니다. 열린 창 제목이 정확히 일치해도 실제 방 ID나 수신자를 증명하지는 않습니다. 이 두 조건을 허용할 때 아래 옵션을 지정합니다.
@@ -147,8 +159,8 @@ Kakao Bridge connects an already signed-in KakaoTalk PC client with command-line
 
 <p align="center">
   <strong>Contentrium</strong><br>
-  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.9">Kakao Bridge 다운로드</a> ·
-  <a href="THIRD-PARTY.md">제3자 라이선스</a>
+  <a href="https://github.com/contentriumkorea/Kakao-Bridge/releases/tag/v0.2.0-alpha.10">Kakao Bridge 다운로드</a> ·
+  <a href="LICENSE">MIT License</a> · <a href="THIRD-PARTY.md">제3자 라이선스</a>
 </p>
 
 <sub>Kakao Bridge는 카카오의 공식 제품이 아닌 독립 프로젝트입니다.</sub>

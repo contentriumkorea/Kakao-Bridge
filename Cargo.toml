@@ -1,0 +1,17 @@
+[package]
+name = "kakao-public-sender"
+version = "0.1.0"
+license = "MIT"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[[bin]]
+name = "text_receiver"
+path = "tests/fixtures/text_receiver.rs"
+
+[[bin]]
+name = "rich_receiver"
+path = "tests/fixtures/rich_receiver.rs"
